@@ -1,22 +1,16 @@
-<div ng-controller="ChecklistCtrl">
-    Check List
-    <div style="width: 400px; height: 400px;">
+<div class="well" ng-controller="ChecklistCtrl">
+    <div style="width: 350px; height: 350px;">
         <div>
             <h3>
                 <button class="btn" style="width: 120px;"
-                        ng-class="{true: 'btn-success', false: 'btn-danger' }[checklistViewModel.isListCompleted]"
+                        ng-class="{true: 'btn-success', false: 'btn-default' }[checklistViewModel.isListCompleted]"
                         ng-disabled="!checklistViewModel.isListCompleted">
                     {{checklistViewModel.buttonText}}
                         </button>
             </h3>
         </div>
 
-        <div checklist-item ng-controller="ChecklistItemCtrl"></div>
-        <div checklist-item ng-controller="ChecklistItemCtrl"></div>
-
-
-        <div>
-            Shell View Model Message : {{shellViewModel.message}}
-        </div>
+        <div checklist-item ng-controller="EstimateChecklistItemConfigCtrl"></div>
+        <div checklist-item ng-controller="AttachmentChecklistItemConfigCtrl"></div>
     </div>
 </div>

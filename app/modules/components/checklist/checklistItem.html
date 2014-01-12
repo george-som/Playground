@@ -1,21 +1,31 @@
-<div class="">
-    Checklist Item Container
-    <div class="panel panel-primary">
-        <div class="panel-heading">Heading</div>
-        <div class="panel-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2">Icon Placholder</div>
-                    <div class=col-md-4">Verbiage</div>
+<div class="panel panel-primary" ng-controller="ChecklistItemCtrl">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="modules/components/checklist/assets/add-doc-32x32.png" />
+            </div>
+            <div class="col-md-10">
+                <div style="font-family:Arial;font-size:20px;font-weight:normal;font-style:normal;text-decoration:none;color:#FF9966;">
+                    {{checklistItemConfigViewModel.heading}}
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <input type="checkbox"
-                               ng-model="checklistItemViewModel.checkboxValue"
-                               ng-change="checklistItemViewModel.notifyChange()"
-                               ng-checked="checklistItemViewModel.checkboxValue">
-                    </div>
+                <div style="font-family:Arial;font-size:11px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">
+                    {{checklistItemConfigViewModel.content}}
                 </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-md-10 col-md-offset-2" style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#0099FF;">
+                <div ng-repeat="action in checklistItemConfigViewModel.actions">
+                    <a href ng-click="action.callback()">{{action.text}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-2">
+                <input type="checkbox"
+                       ng-model="checklistItemViewModel.checkboxValue"
+                       ng-change="checklistItemViewModel.notifyChange()"
+                       ng-checked="checklistItemViewModel.checkboxValue">
             </div>
         </div>
     </div>
