@@ -1,3 +1,5 @@
+'use strict';
+
 var shellModule = angular.module('shellModule', ['checklist']);
 
 shellModule.controller('ShellCtrl', ['$scope', function($scope) {
