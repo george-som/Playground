@@ -11,6 +11,13 @@
 
     <div class="container fill">
         <span class="h3">App Title: {{appViewModel.appName}}</span>
-        <div checklist></div>
+
+        <div id="main-checklist" checklist></div>
+
+        <div ng-controller="ModalCtrl">
+            <div modal  show='modalViewModel.modalShown' width='750px' height='60%'>
+                <div ng-include="modalViewModel.contentUrl"></div>
+            </div>
+        </div>
     </div>
 </div>

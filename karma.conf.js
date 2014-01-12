@@ -4,6 +4,10 @@
 module.exports = function(config) {
     config.set({
 
+        preprocessors: {
+            '**/*.html': ['html2js']
+        },
+
         // base path, that will be used to resolve files and exclude
         basePath: '',
 
@@ -18,6 +22,7 @@ module.exports = function(config) {
             'app/lib/angular-1.2.8/angular-*.js',
             'app/lib/angular-1.2.8/angular-mocks.js',
             'app/modules/**/*.js',
+            'app/modules/**/*.html',
             'test/**/*.spec.js'
         ],
 

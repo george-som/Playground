@@ -21,7 +21,7 @@ checklistModule.directive('checklistItem', function(){
     };
 });
 
-checklistModule.controller('EstimateChecklistItemConfigCtrl', ['$scope', function($scope) {
+checklistModule.controller('EstimateChecklistItemConfigCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
     $scope.checklistItemConfigViewModel = {
         heading: "Estimate",
         content: "Required: Original estimate with print image.",
@@ -30,19 +30,23 @@ checklistModule.controller('EstimateChecklistItemConfigCtrl', ['$scope', functio
                 text: "Add Estimate",
                 callback: function() {
                     console.log('Add estimate clicked');
+                    var args = { contentUrl: "modules/components/checklist/add-estimate.html" };
+                    $rootScope.$broadcast("show-modal", args);;
                 }
             },
             {
                 text: "Write Estimate",
                 callback: function() {
                     console.log('Write estimate clicked');
+                    var args = { contentUrl: "modules/components/checklist/write-estimate.html" };
+                    $rootScope.$broadcast("show-modal", args);;
                 }
             }
         ]
     };
 }]);
 
-checklistModule.controller('AttachmentChecklistItemConfigCtrl', ['$scope', function($scope) {
+checklistModule.controller('AttachmentChecklistItemConfigCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
     $scope.checklistItemConfigViewModel = {
         heading: "Photos & Attachments",
         content: "Required: Minimum of 18 photos of the damage area.",
@@ -51,6 +55,8 @@ checklistModule.controller('AttachmentChecklistItemConfigCtrl', ['$scope', funct
                 text: "Add Attachments",
                 callback: function() {
                     console.log('Add Attachments clicked');
+                    var args = { contentUrl: "modules/components/checklist/add-attachments.html" };
+                    $rootScope.$broadcast("show-modal", args);;
                 }
             }
         ]

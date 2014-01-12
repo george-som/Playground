@@ -11,7 +11,7 @@ checklistModule.controller('ChecklistCtrl', ['$scope', function($scope) {
         completedItems: 0
     };
 
-    $scope.$on('checklist-register', function(args) {
+    $scope.$on('checklist-register', function() {
         checklistViewModel.childItemCount++;
     });
 
@@ -32,6 +32,8 @@ checklistModule.controller('ChecklistCtrl', ['$scope', function($scope) {
 checklistModule.directive('checklist', function() {
     return {
         restrict: 'AE',
-        templateUrl: 'modules/components/checklist/checklist.html'
+        templateUrl: 'modules/components/checklist/checklist.html',
+        link: function($scope, element, attrs) {
+        }
     };
 });
